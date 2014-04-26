@@ -6,7 +6,7 @@ Properties {
 SubShader {
 	Tags { "RenderType"="Opaque" }
 	LOD 200
-    Fog Off
+    Fog { Mode Off }
 
 CGPROGRAM
 #pragma surface surf Lambert
