@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlaySoundOnTrigger : MonoBehaviour {
+public class PlayAnimationOnTrigger : MonoBehaviour {
     public bool playOnlyOnce = false;
-    bool played = false;
+    bool played;
 
-    public void OnTriggerEnter( Collider other ) {
+    void OnTriggerEnter( Collider other ) {
         if ( !playOnlyOnce ) {
-            audio.Play();
+            animation.Play();
         } else if ( !played ) {
-            audio.Play();
+            animation.Play();
             played = true;
         }
     }

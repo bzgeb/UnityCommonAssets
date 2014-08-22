@@ -6,10 +6,11 @@ public class PlaySoundOnCollider : MonoBehaviour {
     bool played = false;
     
     public void OnCollisionEnter( Collision collision ) {
-        if ( !played ) {
+        if ( !playOnlyOnce ) {
+            audio.Play();
+        } else if ( !played ) {
             audio.Play();
             played = true;
         }
-
     }
 }
