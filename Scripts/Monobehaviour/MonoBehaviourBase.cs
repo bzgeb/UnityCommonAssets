@@ -8,7 +8,7 @@ public class MonoBehaviourBase : MonoBehaviour {
        Invoke(task.Method.Name, time);
     }
 
-    public Transform FindInChildren( Transform t, string name ) {
+    static public Transform FindInChildren( Transform t, string name ) {
         Transform r = null;
 
         foreach ( Transform child in t ) {
