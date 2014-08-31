@@ -29,4 +29,11 @@ public class MonoBehaviourBase : MonoBehaviour {
 
         return r;
     }
+
+    static public void SetLayerRecursively( GameObject go, int layer ) {
+        go.layer = layer;
+        foreach ( Transform t in go.transform ) {
+            SetLayerRecursively( t.gameObject, layer );
+        }
+    }
 }
