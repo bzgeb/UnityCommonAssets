@@ -142,4 +142,22 @@ public static class Mathy
     public static bool CompareVectors(Vector3 a, Vector3 b) {
         return (Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z));
     }
+
+    public static Func<float, float> SimpleMovingAverageFunc( int p ) {
+        Queue<float> s = new Queue<float>(p);
+
+        return (x) => {
+            if ( s.Count >= p ) {
+                s.Dequeue();
+            }
+            s.Enqueue( x );
+
+            float[] q = s.ToArray();
+            float sum = 0;
+            for ( int i = 0; i < q.Length; ++i ) {
+                sum += q[i];
+            }
+            return sum / p;
+        };
+    }
 }
