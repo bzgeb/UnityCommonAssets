@@ -8,6 +8,13 @@ public class MonoBehaviourBase : MonoBehaviour {
        Invoke(task.Method.Name, time);
     }
 
+    public IEnumerator Timer( Task task, float time ) {
+        yield return new WaitForSeconds( time );
+
+        task();
+    }
+
+
     static public Transform FindInChildren( Transform t, string name ) {
         Transform r = null;
 
