@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MonoBehaviourBase : MonoBehaviour {
     public delegate void Task();
@@ -12,6 +13,12 @@ public class MonoBehaviourBase : MonoBehaviour {
         yield return new WaitForSeconds( time );
 
         task();
+    }
+
+    public Action ToggleGameObject( bool enable ) {
+        return () => {
+            gameObject.SetActive( enable );
+        };
     }
 
 
