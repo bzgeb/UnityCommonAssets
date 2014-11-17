@@ -160,4 +160,17 @@ public static class Mathy
             return sum / p;
         };
     }
+
+    public static Func<float, float> ExponentialMovingAverageFunc( float smoothingFactor ) {
+        float lastS = 0;
+        float lastX = 0;
+        return (x) => {
+            float s = ( smoothingFactor * lastX ) + ( ( 1 - smoothingFactor ) * lastS );
+
+            lastX = x;
+            lastS = s;
+
+            return s;
+        };
+    }
 }
