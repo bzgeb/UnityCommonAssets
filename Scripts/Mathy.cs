@@ -161,7 +161,7 @@ public static class Mathy
         };
     }
 
-    public static Func<float, float> ExponentialMovingAverageFunc( float smoothingFactor ) {
+    public static Func<float, float> ExponentialMovingAverageFunc( float smoothingFactor, float initialS = 0, float initialX = 0 ) {
         float lastS = 0;
         float lastX = 0;
         return (x) => {
