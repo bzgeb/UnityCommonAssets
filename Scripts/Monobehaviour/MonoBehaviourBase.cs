@@ -9,11 +9,15 @@ public class MonoBehaviourBase : MonoBehaviour {
        Invoke(task.Method.Name, time);
     }
 
-    // public IEnumerator Timer( Task task, float time ) {
-    //     yield return new WaitForSeconds( time );
+    IEnumerator Timer( Task task, float time ) {
+        yield return new WaitForSeconds( time );
 
-    //     task();
-    // }
+        task();
+    }
+
+    public void DelayedExecute( Task task, float time ) {
+        StartCoroutine( Timer( task, time ) );
+    }
 
     public Action ToggleGameObject( bool enable ) {
         return () => {
