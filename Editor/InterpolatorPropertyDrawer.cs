@@ -13,7 +13,7 @@ public class InterpolatorPropertyDrawer : PropertyDrawer {
         EditorGUI.BeginProperty( position, label, prop );
         GUIStyle headerStyle = new GUIStyle( EditorStyles.label );
         headerStyle.fontStyle = FontStyle.Bold;
-        EditorGUI.LabelField( new Rect( position.x, position.y + 4, position.width, 16 ), "Interpolator", headerStyle );
+        EditorGUI.LabelField( new Rect( position.x, position.y + 4, position.width, 16 ), prop.displayName, headerStyle );
 
         GUIStyle labelStyle = new GUIStyle( EditorStyles.label );
         labelStyle.fontStyle = FontStyle.Italic;
