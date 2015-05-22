@@ -12,4 +12,24 @@ public static class ExtensionMethods {
 
          return current.parent.GetPath() + "/" + current.name;
     }
+
+    public static string GetRelativePath(this Transform current, Transform parent ) {
+        if ( current.parent == null ) {
+            return "/" + current.name;
+        }
+
+        if ( current.parent == parent ) {
+            return current.name;
+        }
+
+        return current.parent.GetRelativePath( parent ) + "/" + current.name;
+    }
+
+    public static int ParentCount( this Transform current ) {
+        if ( current.parent == null ) {
+            return 0;
+        }
+
+        return current.parent.ParentCount() + 1;
+    }
 }
