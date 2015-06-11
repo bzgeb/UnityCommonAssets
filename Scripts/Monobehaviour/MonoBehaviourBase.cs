@@ -15,8 +15,22 @@ public class MonoBehaviourBase : MonoBehaviour {
         task();
     }
 
+    IEnumerator FrameTimer( Task task, int frames ) {
+        int elapsedFrames = 0;
+        while ( elapsedFrames < frames ) {
+            yield return null;
+            ++elapsedFrames;
+        }
+
+        task();
+    }
+
     public void DelayedExecute( Task task, float time ) {
         StartCoroutine( Timer( task, time ) );
+    }
+
+    public void DelayedExecuteFrames( Task task, int frames ) {
+        StartCoroutine( FrameTimer( task, frames ) );
     }
 
     public Action ToggleGameObject( bool enable ) {
