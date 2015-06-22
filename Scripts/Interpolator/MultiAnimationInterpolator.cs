@@ -13,15 +13,15 @@ public class MultiAnimationInterpolator : MonoBehaviour
     AnimationState animationState;
 
     void Start() {
-        animation.enabled = false;
+        GetComponent<Animation>().enabled = false;
 
-        if ( animationClips.Length != animation.GetClipCount() ) {
+        if ( animationClips.Length != GetComponent<Animation>().GetClipCount() ) {
             Debug.LogError( "Number of clips don't match up, this is going to be a problem" );
         }
     }
 
     void SampleAnimation() {
-        animationState = animation[animationClips[clipIndex].name];
+        animationState = GetComponent<Animation>()[animationClips[clipIndex].name];
 
         animationState.enabled = true;
         animationState.weight = 1;
@@ -30,7 +30,7 @@ public class MultiAnimationInterpolator : MonoBehaviour
         } else {
             animationState.time = interpolator.Value;
         }
-        animation.Sample();
+        GetComponent<Animation>().Sample();
         animationState.enabled = false; 
     }
 

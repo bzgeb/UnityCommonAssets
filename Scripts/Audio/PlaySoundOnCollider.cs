@@ -7,9 +7,9 @@ public class PlaySoundOnCollider : MonoBehaviour {
     
     public void OnCollisionEnter( Collision collision ) {
         if ( !playOnlyOnce ) {
-            audio.Play();
+            GetComponent<AudioSource>().Play();
         } else if ( !played ) {
-            audio.Play();
+            GetComponent<AudioSource>().Play();
             played = true;
         }
     }

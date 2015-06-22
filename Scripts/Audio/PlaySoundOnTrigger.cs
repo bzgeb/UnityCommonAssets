@@ -7,9 +7,9 @@ public class PlaySoundOnTrigger : MonoBehaviour {
 
     public void OnTriggerEnter( Collider other ) {
         if ( !playOnlyOnce ) {
-            audio.Play();
+            GetComponent<AudioSource>().Play();
         } else if ( !played ) {
-            audio.Play();
+            GetComponent<AudioSource>().Play();
             played = true;
         }
     }

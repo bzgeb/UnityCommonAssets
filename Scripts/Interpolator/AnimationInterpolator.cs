@@ -10,8 +10,8 @@ public class AnimationInterpolator : MonoBehaviour
     public Interpolator interpolator;
 
     void Start() {
-        animation.enabled = false;
-        animationState = animation[animation.clip.name];
+        GetComponent<Animation>().enabled = false;
+        animationState = GetComponent<Animation>()[GetComponent<Animation>().clip.name];
     }
 
     void SampleAnimation() {
@@ -22,7 +22,7 @@ public class AnimationInterpolator : MonoBehaviour
         } else {
             animationState.time = interpolator.Value;
         }
-        animation.Sample();
+        GetComponent<Animation>().Sample();
         animationState.enabled = false; 
     }
 

@@ -7,9 +7,9 @@ public class PlayAnimationOnTrigger : MonoBehaviour {
 
     void OnTriggerEnter( Collider other ) {
         if ( !playOnlyOnce ) {
-            animation.Play();
+            GetComponent<Animation>().Play();
         } else if ( !played ) {
-            animation.Play();
+            GetComponent<Animation>().Play();
             played = true;
         }
     }

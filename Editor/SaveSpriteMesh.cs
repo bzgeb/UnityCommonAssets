@@ -14,8 +14,8 @@ public class SaveSpriteMesh : ScriptableWizard
     }
 
     void OnWizardCreate() {
-        Vector2[] spriteVerts = UnityEditor.Sprites.DataUtility.GetSpriteMesh( sprite, false );
-        ushort[] spriteIndices = UnityEditor.Sprites.DataUtility.GetSpriteIndices( sprite, false );
+        Vector2[] spriteVerts = UnityEditor.Sprites.SpriteUtility.GetSpriteMesh( sprite, false );
+        ushort[] spriteIndices = UnityEditor.Sprites.SpriteUtility.GetSpriteIndices( sprite, false );
 
         List<Vector3> meshVerts = new List<Vector3>();
         List<int> meshIndices = new List<int>();
