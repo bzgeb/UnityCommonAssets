@@ -3,19 +3,17 @@ using System.Collections;
 using System;
 
 public class MonoBehaviourBase : MonoBehaviour {
-    public delegate void Task();
-
-    public void Invoke(Task task, float time) {
+    public void Invoke(Action task, float time) {
        Invoke(task.Method.Name, time);
     }
 
-    IEnumerator Timer( Task task, float time ) {
+    IEnumerator Timer( Action task, float time ) {
         yield return new WaitForSeconds( time );
 
         task();
     }
 
-    IEnumerator FrameTimer( Task task, int frames ) {
+    IEnumerator FrameTimer( Action task, int frames ) {
         int elapsedFrames = 0;
         while ( elapsedFrames < frames ) {
             yield return null;
@@ -25,11 +23,11 @@ public class MonoBehaviourBase : MonoBehaviour {
         task();
     }
 
-    public void DelayedExecute( Task task, float time ) {
+    public void DelayedExecute( Action task, float time ) {
         StartCoroutine( Timer( task, time ) );
     }
 
-    public void DelayedExecuteFrames( Task task, int frames ) {
+    public void DelayedExecuteFrames( Action task, int frames ) {
         StartCoroutine( FrameTimer( task, frames ) );
     }
 
