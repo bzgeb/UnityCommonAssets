@@ -3,9 +3,9 @@ using System.Collections;
 using System;
 
 public class MonoBehaviourBase : MonoBehaviour {
-    public void Invoke(Action task, float time) {
-       Invoke(task.Method.Name, time);
-    }
+    // public void Invoke(Action task, float time) {
+    //    Invoke(task.Method.Name, time);
+    // }
 
     IEnumerator Timer( Action task, float time ) {
         yield return new WaitForSeconds( time );
